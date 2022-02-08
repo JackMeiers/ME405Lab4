@@ -31,17 +31,18 @@ def serialHandler():
     adc_list = []
     with serial.Serial('COM4', 115200) as s_port:
         for line in s_port:
-            #manually sent EOF needed because serial port doesn't have EOF
             if b',' in line:
                 split_line = line.split(b',')
                 for split in split_line:
                     print(split)
                     if b'EOF' in split:
+                        '''Break out of loop when user exits and allow for
+                        them to add multiple samples ot graph'''
                         pyplot.plot(adc_list)
                         pyplot.grid()
                         pyplot.autumn()
                         pyplot.ylabel("adcValues")
-                        pyplot.xlabel("Time")
+                        pyplot.xlabel("Samples")
                         pyplot.show()
                     if isnum(split):
                         adc_list.append(float(split))

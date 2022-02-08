@@ -1,13 +1,10 @@
 '''!
 @file main.py
-    This file contains a modified version of JR Ridgely's
-    basic_task.py (https://github.com/spluttflob/ME405-Support)
-    that creates tasks for running two seperate motors step responses at
-    the same time
+    This file contains a 
 @author Lucas Sandsor
 @author Jack Barone
 @author Jack Meyers
-@date 1-Feb-2022
+@date 8-Feb-2022
 '''
 
 import gc
@@ -20,11 +17,25 @@ import controls
 import utime
 import micropython
 
+'''!
+Allot 100 bytes of memory for an unforeseen exception buffer
+'''
 micropython.alloc_emergency_exception_buf(100)
+
+
+'''!
+Create a global queue for the interrupt to use to share values
+with the main function
+'''
 q0 = task_share.Queue ('h', 1000,name = "Queue Interrupt")
 
 def callback1(t):
-    #print("Print inside of interrupt")
+    '''!
+    @brief Interrupt subroutine
+    @detail Callback1 is interrupt subroutine function that is passed
+    to a timer to be used. It reads the adcpin and puts the
+    read value into a queue to be printed
+    '''
     q0.put(adcpin.read(),in_ISR=True)
 
 
