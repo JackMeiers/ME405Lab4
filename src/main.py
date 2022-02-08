@@ -1,13 +1,11 @@
 '''!
 @file main.py
-    This file contains a modified version of JR Ridgely's
-    basic_task.py (https://github.com/spluttflob/ME405-Support)
-    that creates tasks for running two seperate motors step responses at
-    the same time
+    Creates an interrupt service routine to read data from ADC. Outputs a signal to an external RC circuit then reads the resulting signal.
+    The data can then be read with the serialReader class.
 @author Lucas Sandsor
 @author Jack Barone
 @author Jack Meyers
-@date 1-Feb-2022
+@date 8-Feb-2022
 '''
 
 import gc
