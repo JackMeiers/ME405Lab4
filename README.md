@@ -21,4 +21,4 @@ Next, we measured the time constant again using the serial data from the Queue. 
 This is also within the expected tolerances. Overall, the time constants we measured were accurate to our expected results and the interrupt service routine we wrote correctly gathered the data at fixed intervals.
 
 #### Plotted Results
-![Graph go here](./matplotlib.png)
+![Graph go here](./MatPlotLib.png)
