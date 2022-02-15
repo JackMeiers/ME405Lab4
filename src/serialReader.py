@@ -1,9 +1,9 @@
 """!@file main.py
-    This file contains all the funcitons printing out
+    This file contains all the functions printing out
     a graph of the input from the ADC.
     @author Lucas Sandsor
     @author Jack Barone
-    @author Jackson Myers
+    @author Jackson Meyers
     @date 8-Feb-2022 
 """
 from matplotlib import pyplot

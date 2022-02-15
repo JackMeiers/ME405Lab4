@@ -1,6 +1,7 @@
 '''!
 @file main.py
-    This file contains a 
+    This file contains the callback for the Lab 4 interrupt and the main function.
+	Main initializes the ADC, then gets values from it in a loop. Values are added to the queue from the ADC via an ISR.
 @author Lucas Sandsor
 @author Jack Barone
 @author Jack Meyers
@@ -40,7 +41,8 @@ def callback1(t):
 
 
 if __name__ == "__main__":
-    adcValues = []
+    # Initialize the ADC and the circuit input pin.
+	adcValues = []
     pinc0 = pyb.Pin (pyb.Pin.board.PC0, pyb.Pin.OUT_PP)
     pinc1 = pyb.Pin (pyb.Pin.board.PC1, pyb.Pin.OUT_PP)
     adcpin = pyb.ADC(pinc0)
